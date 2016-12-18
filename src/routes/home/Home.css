@@ -1,39 +1,141 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 @import '../../components/variables.css';
 
-.root {
-  padding-left: 20px;
-  padding-right: 20px;
+:root {
+  --animCircOut: cubic-bezier(0.19, 1, 0.22, 1);
+  --lightBorderColor: color(var(--yellow) lightness(+30%));
+  --bigScale: scale(1.2, 1.2);
+  --hoverAnim: all 2s var(--expoOut);
+  --returnAnim: all 1s var(--expoOut);
+  --contentBackgroundColor: color(var(--yellow) alpha(85%));
+  --expandDuration: 1s;
 }
 
-.container {
+.homeRoot {
+  padding-top: 80px;
+  max-width: 750px;
   margin: 0 auto;
-  padding: 0 0 40px;
-  max-width: var(--max-content-width);
+  position: relative;
 }
 
-.news {
-  padding: 0;
+.philNode {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  position: absolute;
+  transition: all var(--expandDuration) var(--expoOut);
+  top: 0;
+  left: 0;
+
+  &:hover, &.expanded {
+    .contentArea {
+      box-shadow: 0 0 54px rgba(0,0,0,.54),
+                  0 12px 52px rgba(0,0,0,.15);
+      transform: var(--bigScale);
+      background: color(var(--yellow) alpha(95%));
+      border-color: var(--darkBlue);
+      transition: var(--hoverAnim);
+    }
+
+    i {
+      color: var(--darkBlue);
+      transition: var(--hoverAnim);
+    }
+
+    .titleArea {
+      transform: translateY(-10px) var(--bigScale);
+      background: var(--darkBlue);
+      box-shadow: 0 5px 14px rgba(0,0,0,.74),
+                  0 12px 12px rgba(0,0,0,.20);
+      transition: all 10s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+  }
+
+  &.expanded {
+    transform: none;
+    cursor: initial;
+    width: 100%;
+
+    .contentArea {
+      height: initial;
+      max-height: 300px;
+      width: 100%;
+      border-color: var(--darkBlue);
+      transition-duration: var(--expandDuration);
+      border-radius: 30px;
+      transform: none;
+      padding: 10px 30px 50px;
+    }
+    .content {
+      visibility: visible;
+      height: initial;
+      color: var(--darkBlue);
+      transition-property: color transform;
+      transition-duration: 1s;
+      transition-delay: .7s;
+      transform: none;
+    }
+    i {
+      --size: 22px;
+      font-size: var(--size);
+      line-height: var(--size);
+      transition-duration: var(--expandDuration);
+    }
+    .titleArea {
+      transform: translateY(-23px) var(--bigScale);
+    }
+  }
+
 }
 
-.newsItem {
-  list-style-type: none;
-  padding-bottom: 6px;
+.contentArea {
+  --size: 50px;
+  height: var(--size);
+  width: var(--size);
+  text-align: center;
+  border-radius: 100%;
+  background: var(--contentBackgroundColor);
+  border: 1px solid var(--lightBorderColor);
+  box-shadow: 0 0 14px rgba(0,0,0,.84),
+              0 12px 12px rgba(0,0,0,.28);
+  padding: 10px;
+  transition: var(--returnAnim);
+  overflow: scroll;
+
+  i {
+    color: var(--white);
+    font-size: 34px;
+    line-height: var(--size);
+    margin: 1px 0 0 1px;
+    transition: var(--returnAnim);
+  }
 }
 
-.newsTitle {
-  font-size: 1.125em;
+.content {
+  visibility: hidden;
+  height: 0;
+  font-size: 18px;
+  color: var(--contentBackgroundColor);
+  text-shadow: var(--textShadowWhiteLight);
+  transform: scale(.97, .97) translateY(3px);
+  transition-timing-function: var(--expoOut);
+  padding: 5px 5px 0;
 }
 
-.newsTitle,
-.newsDesc {
-  display: block;
+.titleArea {
+  --height: 40px;
+  border-radius: 70px;
+  background: color(var(--darkBlue) alpha(95%));
+  border: 1px solid color(var(--darkBlue) lightness(+5%));
+  height: var(--height);
+  line-height: var(--height);
+  text-align: center;
+  font-size: 16px;
+  color: var(--white);
+  padding: 0 15px;
+  transform: translateY(2px);
+  box-shadow: 0 0 14px rgba(0,0,0,.54),
+              0 12px 12px rgba(0,0,0,.18);
+  transition: var(--returnAnim);
+  z-index: 2;
 }

@@ -1,31 +1,77 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
 :root {
+
+  /*
+   * Colors
+   * ======================================================================== */
+
+  --white:            #F7F7F7;
+  --gray-darker:           color(black lightness(+13.5%)); /* #222 */
+  --gray-dark:             color(black lightness(+25%));   /* #404040 */
+  --gray:                  color(black lightness(+33.5%)); /* #555 */
+  --gray-light:            color(black lightness(+46.7%)); /* #777 */
+  --gray-lighter:          color(black lightness(+93.5%)); /* #eee */
+  --yellow:                rgb(248, 198, 12);
+  --blue:                  #64FFDA;
+  --darkBlue:              #004D40;
+  --brandColor:            var(--yellow);
+  --linkColor:             var(--blue);
+  --textColor:             var(--darkBlue);
+
   /*
    * Typography
    * ======================================================================== */
 
-  --font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+  --font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+  --textShadowDarkBlue: 1px 1px color(var(--darkBlue) alpha(60%));
+  --textShadowWhite: 1px 1px color(var(--white) alpha(30%));
+  --textShadowWhiteLight: 1px 1px color(var(--white) alpha(20%));
 
   /*
    * Layout
    * ======================================================================== */
 
-  --max-content-width: 1000px;
+  --max-content-width:     1000px;
 
   /*
    * Media queries breakpoints
    * ======================================================================== */
 
-  --screen-xs-min: 480px;  /* Extra small screen / phone */
-  --screen-sm-min: 768px;  /* Small screen / tablet */
-  --screen-md-min: 992px;  /* Medium screen / desktop */
-  --screen-lg-min: 1200px; /* Large screen / wide desktop */
+  --screen-xs-min:         480px;  /* Extra small screen / phone */
+  --screen-sm-min:         768px;  /* Small screen / tablet */
+  --screen-md-min:         992px;  /* Medium screen / desktop */
+  --screen-lg-min:         1200px; /* Large screen / wide desktop */
+
+  /*
+   * Animations
+   * ======================================================================== */
+
+  --expoOut: cubic-bezier(0.19, 1, 0.22, 1);
+  --sinOut: cubic-bezier(0.39, 0.575, 0.565, 1);
+  --animation-swift-out:   .45s cubic-bezier(0.3, 1, 0.4, 1) 0s;
+  --animOut:               2s var(--expoOut);
+
+}
+
+.navArea {
+  background: color(var(--yellow) alpha(60%));
+  border-radius: 70px;
+  box-shadow: 0 0 14px rgba(0,0,0,.84),
+              0 12px 12px rgba(0,0,0,.28),
+              1px 1px 3px var(--blue),
+              -1px -1px 3px var(--blue);
+  transition: all var(--animOut);
+  height: 80px;
+  line-height: 80px;
+
+  &:hover {
+    background: color(var(--yellow) alpha(80%));
+    box-shadow: 0 0 24px rgba(0,0,0,.84),
+                0 22px 22px rgba(0,0,0,.28),
+                1px 1px 1px var(--blue),
+                -1px -1px 1px var(--blue);
+    transform: translate(0, -1px);
+
+  }
 }

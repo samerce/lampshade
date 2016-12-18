@@ -8,27 +8,37 @@
  */
 
 import React, { PropTypes } from 'react';
+import Navigation from '../Navigation';
+import SocialNav from '../SocialNav';
+import Feedback from '../Feedback';
+
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Layout.css';
-import Header from '../Header';
-import Feedback from '../Feedback';
-import Footer from '../Footer';
 
+@withStyles(s)
 class Layout extends React.Component {
   static propTypes = {
     children: PropTypes.node.isRequired,
+    location: PropTypes.string,
   };
 
   render() {
     return (
       <div>
-        <Header />
-        {this.props.children}
-        <Feedback />
-        <Footer />
+        <img className={s.bgImage} src='trippy.jpg' />
+        <div className={s.headerContainer}>
+          <Navigation location={this.props.location} />
+          <SocialNav />
+        </div>
+        <div className={s.content}>
+          {this.props.children}
+        </div>
+        <div className={s.footerContainer}>
+          <Feedback />
+        </div>
       </div>
     );
   }
 }
 
-export default withStyles(s)(Layout);
+export default Layout;

@@ -1,45 +1,41 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
+/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
 
-.root {
-  margin: 0;
+@import '../variables.css';
+
+:root {
+  --linkFontSize: 26px;
 }
 
-.link {
-  display: inline-block;
-  padding: 3px 8px;
+.navArea {
+  position: absolute;
+  top: 0;
+  left: 20px;
+
+  &:hover .navLogoTxt {
+    color: var(--darkBlue);
+    text-shadow: var(--textShadowWhite);
+  }
+  &:active {
+    background: var(--yellow);
+    transition-duration: .5s;
+  }
+}
+
+.navLogo {
+  color: color(var(--brandColor) lightness(+10%));
   text-decoration: none;
-  font-size: 1.125em; /* ~18px */
+  font-size: 28px;
+  cursor: pointer;
 }
 
-.link,
-.link:active,
-.link:visited {
-  color: rgba(255, 255, 255, 0.6);
-}
-
-.link:hover {
-  color: rgba(255, 255, 255, 1);
-}
-
-.highlight {
-  margin-right: 8px;
-  margin-left: 8px;
-  border-radius: 3px;
-  background: rgba(0, 0, 0, 0.15);
-  color: #fff;
-}
-
-.highlight:hover {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.spacer {
-  color: rgba(255, 255, 255, 0.3);
+.navLogoTxt {
+  font-family: Rancho;
+  font-size: 48px;
+  text-align: center;
+  display: block;
+  color: #F7F7F7;
+  user-select: none;
+  padding: 0 30px;
+  text-shadow: var(--textShadowDarkBlue);
+  transition: all 1s var(--expoOut);
 }

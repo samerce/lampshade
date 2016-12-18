@@ -65,6 +65,7 @@ const config = {
             // automatically polyfilling your code without polluting globals.
             // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-runtime
             'transform-runtime',
+            'transform-decorators-legacy',
             ...!isDebug ? [] : [
               // Adds component stack to warning messages
               // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-source
