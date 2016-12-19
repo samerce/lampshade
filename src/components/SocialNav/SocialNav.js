@@ -9,7 +9,7 @@ export default class SocialNav extends React.Component {
 
   render() {
     return (
-      <div className={cx(s.navArea, s.navSocialNetworks)} role='navigation'>
+      <div className={cx(s.navArea, s.navButton, s.navSocialNetworks)} role='navigation'>
         <a className={cx(s.navLink, "icon")}
            href="mailto:smile@lampshade.life"
            target='_blank'>

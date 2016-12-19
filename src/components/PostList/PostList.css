@@ -1,0 +1,13 @@
+@import '../variables.css';
+
+.postListRoot {
+
+}
+
+.postContentArea {
+  width: 70%;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 30px;
+  background: color(var(--yellow) alpha(95%));
+}

@@ -20,6 +20,7 @@ const ContextType = {
     dispatch: PropTypes.func.isRequired,
     getState: PropTypes.func.isRequired,
   }).isRequired,
+  window: PropTypes.object.isRequired,
 };
 
 /**

@@ -10,7 +10,8 @@
 import React, { PropTypes } from 'react';
 import Navigation from '../Navigation';
 import SocialNav from '../SocialNav';
-import Feedback from '../Feedback';
+import Footer from '../Footer';
+import Background from '../Background';
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Layout.css';
@@ -24,8 +25,8 @@ class Layout extends React.Component {
 
   render() {
     return (
-      <div>
-        <img className={s.bgImage} src='trippy.jpg' />
+      <div className={s.layoutRoot}>
+        <Background />
         <div className={s.headerContainer}>
           <Navigation location={this.props.location} />
           <SocialNav />
@@ -34,7 +35,7 @@ class Layout extends React.Component {
           {this.props.children}
         </div>
         <div className={s.footerContainer}>
-          <Feedback />
+          <Footer />
         </div>
       </div>
     );

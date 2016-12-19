@@ -4,4 +4,9 @@
   border: 1px dotted color(var(--darkBlue) alpha(80%));
   border-radius: 5px;
   padding: 3px;
+  text-align: left;
+
+  h3 {
+    text-align: center;
+  }
 }

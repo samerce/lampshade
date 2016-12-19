@@ -15,10 +15,10 @@ export default {
 
   path: '/',
 
-  action({path}) {
+  action({path, window}) {
     return {
       title: 'Lampshade Loves You',
-      component: <Layout location={path}><Home /></Layout>,
+      component: <Layout location={path}><Home window={window} /></Layout>,
     };
   },
 

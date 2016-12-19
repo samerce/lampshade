@@ -10,6 +10,7 @@
   position: absolute;
   top: 0;
   left: 20px;
+  width: var(--headerPillWidth);
 
   &:hover .navLogoTxt {
     color: var(--darkBlue);
@@ -33,9 +34,8 @@
   font-size: 48px;
   text-align: center;
   display: block;
-  color: #F7F7F7;
+  color: var(--white);
   user-select: none;
-  padding: 0 30px;
   text-shadow: var(--textShadowDarkBlue);
   transition: all 1s var(--expoOut);
 }

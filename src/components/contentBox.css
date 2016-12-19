@@ -1,0 +1,33 @@
+@import './variables.css';
+
+:root {
+  --returnAnim: all 1s var(--expoOut);
+  --lightBorderColor: color(var(--yellow) lightness(+30%));
+  --contentBackgroundColor: color(var(--yellow) alpha(85%));
+}
+
+.contentBoxArea {
+  background: var(--contentBackgroundColor);
+  border: 1px solid var(--lightBorderColor);
+  box-shadow: 0 0 14px rgba(0,0,0,.84),
+              0 12px 12px rgba(0,0,0,.28);
+  transition: var(--returnAnim);
+}
+
+.contentBox {
+  font-size: 18px;
+  color: var(--contentBackgroundColor);
+  text-shadow: var(--textShadowWhiteLight);
+  transform: scale(.96, .96) translateY(5px);
+  transition-timing-function: var(--expoOut);
+
+  &.visible {
+    visibility: visible;
+    height: initial;
+    color: var(--darkBlue);
+    transition-property: color transform;
+    transition-duration: 1.5s;
+    transition-delay: .9s;
+    transform: none;
+  }
+}

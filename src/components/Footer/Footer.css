@@ -12,6 +12,8 @@
 .root {
   background: color(var(--white) alpha(90%));
   color: #333;
+  z-index: 100;
+  position: relative;
 }
 
 .container {
@@ -30,10 +32,19 @@
   text-decoration: none;
   cursor: pointer;
   display: inline-block;
+  width: 100px;
 }
 
 .link:hover {
   text-decoration: underline;
+}
+
+.donateLink {
+  text-align: right;
+}
+
+.collaborateLink {
+  text-align: left;
 }
 
 .spacer {

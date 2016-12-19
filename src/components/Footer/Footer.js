@@ -1,23 +1,17 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-2016 Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 import React from 'react';
-import withStyles from 'isomorphic-style-loader/lib/withStyles';
-import s from './Feedback.css';
 
-class Feedback extends React.Component {
+import withStyles from 'isomorphic-style-loader/lib/withStyles';
+import cx from 'classnames';
+import s from './Footer.css';
+
+@withStyles(s)
+export default class Footer extends React.Component {
   render() {
     return (
       <div className={s.root}>
         <div className={s.container}>
-          <div className={s.link} onClick={this.clickDonateButton.bind(this)}>
-            help fund us
+          <div className={cx(s.link, s.donateLink)} onClick={this.clickDonateButton.bind(this)}>
+            donate
 
             <form className={s.paypalBlock} action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
               <input type="hidden" name="cmd" value="_s-xclick"/>
@@ -28,10 +22,10 @@ class Feedback extends React.Component {
             </form>
           </div>
           <span className={s.spacer}>|</span>
-          <a className={s.link}
+          <a className={cx(s.link, s.collaborateLink)}
              target='_blank'
              href="https://docs.google.com/forms/d/1rGMoYCJrc8aMK6454FU-ssnCkVL2xXdhGWpEaFWXxUs/viewform">
-            collaborate with us
+            collaborate
           </a>
         </div>
       </div>
@@ -42,5 +36,3 @@ class Feedback extends React.Component {
     $(this.refs.donateButton).click();
   }
 }
-
-export default withStyles(s)(Feedback);

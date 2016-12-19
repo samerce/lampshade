@@ -171,10 +171,28 @@ textarea {
 
 h3 {
   font-size: 28px;
+
+}
+
+h3:first-child {
+  margin-top: 0;
+  margin-bottom: 5px;
 }
 
 h5 {
   font-size: 17px;
+}
+
+p:first-child {
+  margin-top: 0;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+p {
+  margin-top: 15px;
 }
 
 .main-summary {
@@ -267,15 +285,8 @@ h2.quick-blurb {
   padding-top: 10px;
 }
 
-.bgImage {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .content {
   position: relative;
-  /*margin-top: 200px;*/
   z-index: 1;
 }
 
@@ -292,4 +303,9 @@ h2.quick-blurb {
   bottom: 0;
   left: 0;
   right: 0;
+  z-index: 100;
+}
+
+.layoutRoot {
+  overflow: hidden;
 }

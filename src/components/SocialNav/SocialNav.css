@@ -1,5 +1,3 @@
-/* React Starter Kit | MIT License | http://www.reactstarterkit.com/ */
-
 @import '../variables.css';
 
 :root {
@@ -11,7 +9,8 @@
   display: inline-block;
   position: absolute;
   right: 20px;
-  padding: 0 30px;
+  width: var(--headerPillWidth);
+  text-align: center;
 }
 
 .navLink {
@@ -20,7 +19,7 @@
   font-size: var(--linkFontSize);
   color: var(--white);
   cursor: pointer;
-  width: 50px;
+  width: 45px;
   text-align: center;
   transition: all 1s var(--expoOut);
 

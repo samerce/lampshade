@@ -29,6 +29,9 @@ const context = {
     const removeCss = styles.map(x => x._insertCss());
     return () => removeCss.forEach(f => f());
   },
+  window: {
+    width: window.innerWidth,
+  },
   // Initialize a new Redux store
   // http://redux.js.org/docs/basics/UsageWithReact.html
   store: configureStore(window.APP_STATE, { history }),

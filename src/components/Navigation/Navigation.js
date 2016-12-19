@@ -17,7 +17,7 @@ export default class Navigation extends React.Component {
 
   render() {
     return (
-      <div className={s.navArea} role='navigation'>
+      <div className={cx(s.navArea, s.navButton)} role='navigation'>
         <a className={s.navLogo} href="/" onClick={Link.onClick}>
           <span className={s.navLogoTxt}>lampshade</span>
         </a>
