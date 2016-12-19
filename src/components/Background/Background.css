@@ -1,10 +1,23 @@
 @import '../variables.css';
 
-.bgImageArea {
+:root {
+  --expandIconSize: 50px;
+}
+
+.root {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+}
+
+.bgArea {
+  position: relative;
+  width: 100%;
+
+  &.expanded {
+    z-index: 50;
+  }
 }
 
 .bgImage {
@@ -18,4 +31,43 @@
 
 .topImage {
   width: initial;
+}
+
+.expandButton {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: var(--expandIconSize);
+  height: var(--expandIconSize);
+  border-radius: 100%;
+  background: color(var(--yellow) alpha(80%));
+  transition: all 2s var(--expoOut);
+  z-index: 20;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid color(var(--yellow) lightness(+10%));
+
+  i {
+    line-height: var(--expandIconSize);
+    font-size: 20px;
+    color: var(--white);
+    transition: color 1s var(--expoOut),
+                transform 8s var(--expoOut);
+  }
+
+  &:hover {
+    background: color(var(--yellow) alpha(95%));
+    transform: scale(1.3, 1.3);
+    border-color: var(--darkBlue);
+
+    i {
+      color: var(--darkBlue);
+      transform: scale(1.3, 1.3);
+    }
+  }
+
+  &:active {
+    background: var(--yellow);
+    border: 1px solid var(--darkBlue);
+  }
 }

@@ -33,15 +33,15 @@ export default class BubbleExplorer extends React.Component {
   }
 
   renderNode(category, iconName) {
-    const {window = {width: 600}} = this.props;
+    const {window = {width: 1024}} = this.props;
     const isExpanded = this.state.expandedCategory === category;
     const classes = cx(s.philNode, {[s.expanded]: isExpanded})
-    const pos = positions[category];
+    const pos = this.getPositions()[category];
     const style = {
       top: isExpanded? 130 : (400 + pos.y),
       left: isExpanded? 0 : pos.x,
       height: isExpanded? 350 : 120,
-      width: isExpanded? window.width * .7 : 50,
+      width: isExpanded? window.width * .6 : 50,
     };
     const config = {stiffness: 300, damping: 35};
     const motion = {
@@ -68,7 +68,7 @@ export default class BubbleExplorer extends React.Component {
               [contentStyle.visible]: isExpanded,
             })}>
               {contents[category]()}
-              {category === 'introductions' && <video style={{width: '400px', margin: '0 auto'}} ref='video' src='http://d1iv9j7x4n3nsi.cloudfront.net/lampshade.mp4' autoplay="true" autostart="true" controls></video>}
+              {category === 'introductions' && <video style={{width: '400px', margin: '0 auto'}} ref='video' src='http://d1iv9j7x4n3nsi.cloudfront.net/lampshade.mp4' controls></video>}
             </div>
           </div>
           <div className={s.titleArea}>
@@ -86,8 +86,15 @@ export default class BubbleExplorer extends React.Component {
     this.setState({expandedCategory});
   }
 
-  onResize() {
-    this.setState({windowWidth: aWindow.innerWidth});
+  getPositions() {
+    const {window = {width: 1024}} = this.props;
+    const {width} = window;
+    return {
+      books: {x: width * .6, y: 80},
+      ephemerality: {x: width * .5, y: 225},
+      technology: {x: width * .4, y: 110},
+      introductions: {x: width * .2, y: 90},
+    };
   }
 
 }
@@ -98,9 +105,3 @@ var contents = {
   technology: () => <Editor>oh what a love-hate relationship we have. a tool so easily misused.</Editor>,
   introductions: () => <Editor>{"<h3>&nbsp;namaste | welcome</h3>here, you have stumbled upon the pinnacle of philosophical discourse. this tome of knowledge aims to provide you with the latest explorations into what it means to be human in the modern age. lampshade is​ a mindful hub to freely and compassionately explore yourself and share your ideas, get inspired, collaborate, create, and motivate. <br /><br />it's all a dream. anyway..."}</Editor>,
 };
-var positions = {
-  books: {x: 740, y: 80},
-  ephemerality: {x: 650, y: 225},
-  technology: {x: 340, y: 110},
-  introductions: {x: 530, y: 90},
-}

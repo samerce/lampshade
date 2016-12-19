@@ -92,6 +92,7 @@
       box-shadow: 0 5px 14px rgba(0,0,0,.74),
                   0 12px 12px rgba(0,0,0,.20);
       transition: all 10s cubic-bezier(0.165, 0.84, 0.44, 1);
+      cursor: pointer;
     }
   }
 
@@ -169,4 +170,6 @@
               0 12px 12px rgba(0,0,0,.18);
   transition: var(--returnAnim);
   z-index: 2;
+  user-select: none;
+  cursor: default;
 }

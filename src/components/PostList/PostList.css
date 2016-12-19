@@ -5,9 +5,11 @@
 }
 
 .postContentArea {
-  width: 70%;
-  margin: 0 auto;
+  width: 60%;
+  height: 400px;
+  margin: 40px auto;
   padding: 20px;
   border-radius: 30px;
   background: color(var(--yellow) alpha(95%));
+  overflow: hidden;
 }

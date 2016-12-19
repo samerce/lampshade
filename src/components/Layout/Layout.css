@@ -295,7 +295,7 @@ h2.quick-blurb {
   top: 20px;
   left: 0;
   right: 0;
-  z-index: 2;
+  z-index: 100;
 }
 
 .footerContainer {
