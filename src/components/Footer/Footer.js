@@ -10,6 +10,12 @@ export default class Footer extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.container}>
+          <a className={cx(s.link, s.collaborateLink)}
+             target='_blank'
+             href="https://docs.google.com/forms/d/1rGMoYCJrc8aMK6454FU-ssnCkVL2xXdhGWpEaFWXxUs/viewform">
+            collaborate
+          </a>
+          <span className={s.spacer}>|</span>
           <div className={cx(s.link, s.donateLink)} onClick={this.clickDonateButton.bind(this)}>
             donate
 
@@ -21,12 +27,6 @@ export default class Footer extends React.Component {
               <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1"/>
             </form>
           </div>
-          <span className={s.spacer}>|</span>
-          <a className={cx(s.link, s.collaborateLink)}
-             target='_blank'
-             href="https://docs.google.com/forms/d/1rGMoYCJrc8aMK6454FU-ssnCkVL2xXdhGWpEaFWXxUs/viewform">
-            collaborate
-          </a>
         </div>
       </div>
     );

@@ -4,8 +4,9 @@ import MediumBackground from 'react-medium-editor';
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import s from './Background.css';
+import buttonStyle from '../../css/button.css';
 
-@withStyles(s)
+@withStyles(s, buttonStyle)
 export default class Background extends React.Component {
 
   state = {
@@ -30,7 +31,8 @@ export default class Background extends React.Component {
     return (
       <div className={cx(s.bgArea, {[s.expanded]: isExpanded})}>
         <img className={s.bgImage} src={imageName} />
-        <div className={s.expandButton} onClick={this.toggleExpandedImage.bind(this, imageName)}>
+        <div className={cx(buttonStyle.button, s.expandButton)}
+             onClick={this.toggleExpandedImage.bind(this, imageName)}>
           <i className={`fa fa-${iconName}`} />
         </div>
       </div>
