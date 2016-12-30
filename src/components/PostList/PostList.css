@@ -1,5 +1,14 @@
 @import '../variables.css';
 
+:root {
+  --lightYellow: color(var(--yellow) alpha(95%));
+  --postTypeInsetHorizontal: 10%;
+  --typeItemHeight: 60px;
+  --typeIconSize: 40px;
+  --borderColor: color(var(--yellow) lightness(-10%));
+  --publishButtonHeight: 50px;
+}
+
 .postListRoot {
   margin-bottom:110px;
 }
@@ -11,7 +20,7 @@
   margin: 40px auto;
   padding: 30px;
   border-radius: 30px;
-  background: color(var(--yellow) alpha(95%));
+  background: var(--lightYellow);
   transition: all 3s var(--expoOut);
 
   &.expanded {
@@ -33,4 +42,154 @@
   &:hover {
     transform: translateX(-50%) scale(1.3, 1.3);
   }
+}
+
+.typeArea {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -35px;
+  left: -5px;
+  cursor: pointer;
+}
+
+.typeItem {
+  background: var(--yellow);
+  color: var(--darkBlue);
+
+  flex: 0 0 var(--typeItemHeight);
+  text-align: center;
+  position: relative;
+  height: var(--typeItemHeight);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 100%;
+  margin: 0 5px;
+  border: 1px solid color(var(--yellow) lightness(+15%));
+  transition: all 1s var(--expoOut);
+  box-shadow: var(--lightShadow);
+
+  &:hover:not(.typeItemSelected) {
+    transform: scale(1.1, 1.1);
+  }
+
+  i {
+    font-size: 22px;
+  }
+
+  .typeName {
+    font-size: 13px;
+  }
+
+  &.typeItemSelected {
+    background: var(--darkBlue);
+    color: var(--yellow);
+    border: 1px solid color(var(--darkBlue) lightness(+10%));
+    cursor: default;
+    box-shadow: none;
+  }
+}
+
+.imageButtonArea {
+  position: absolute;
+  top: -35px;
+  right: 150px;
+  display: flex;
+  cursor: pointer;
+}
+
+.publishArea {
+  position: absolute;
+  top: -30px;
+  right: -25px;
+  display: flex;
+  flex-direction: column;
+  height: 60px;
+  transition: all .5s var(--expoOut);
+
+  &:hover {
+    height: initial;
+
+    .publishOptionHidden {
+      transform: none !important;
+      visibility: visible;
+      box-shadow: var(--lightShadow);
+      &:hover {
+        transform: scale(1.1, 1.1) !important;
+      }
+    }
+  }
+}
+
+.publishOption {
+  height: var(--publishButtonHeight);
+  line-height: var(--publishButtonHeight);
+  width: 110px;
+  box-shadow: var(--lightShadow);
+  border-radius: 30px;
+  background: var(--yellow);
+  padding: 0 15px;
+  margin: 5px 0;
+  cursor: pointer;
+  transition: all .5s var(--expoOut);
+  position: relative;
+  font-weight: 600;
+  border: 2px solid var(--darkBlue);
+
+  &:hover {
+    transform: scale(1.1, 1.1) !important;
+  }
+
+  i {
+    width: 20px;
+  }
+}
+
+.publishOptionHidden {
+  visibility: hidden;
+  box-shadow: none;
+}
+
+.publishOptionDisabled {
+  display: none;
+}
+
+.publishOptionText {
+  display: inline-block;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+.inputArea {
+  margin-bottom: 15px;
+  font-weight: 600;
+  border-bottom: 1px dashed var(--darkBlue);
+}
+
+.titleArea {
+  width: 100%;
+  text-align: center;
+  font-size: 22px;
+}
+
+.categoryArea {
+  padding-left: 5px;
+  flex: 0 0 30%;
+  margin-right: 15px;
+}
+
+.tagArea {
+  padding-right: 5px;
+  text-align: right;
+  flex: 1 0 auto;
+  margin-left: 15px;
+}
+
+.secondaryInputArea {
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
 }

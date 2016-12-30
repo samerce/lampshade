@@ -6,11 +6,31 @@ import s from './PostList.css';
 import buttonStyle from '../../css/button.css';
 import contentStyle from '../contentBox.css';
 
+const publishOptions = {
+  save: {
+    icon: 'save',
+    text: 'save draft',
+  },
+  publish: {
+    icon: 'send',
+    text: 'publish',
+  },
+  republish: {
+    icon: 'send',
+    text: 'republish',
+  },
+}
+
 @withStyles(s, contentStyle, buttonStyle)
 export default class PostList extends React.Component {
 
   state = {
     expandedPosts: {},
+    postType: 'blog',
+    title: 'don your sex clothes',
+    category: 'politics',
+    tag: '#economy',
+    publishOptionsOrder: ['save', 'publish', 'republish'],
   };
 
   render() {
@@ -20,10 +40,11 @@ export default class PostList extends React.Component {
         {this.renderPost(2)}
         {this.renderPost(3)}
       </div>
-    );
+    )
   }
 
   renderPost(id) {
+    const {title, category, tag} = this.state;
     const isExpanded = this.state.expandedPosts[id];
     const rootStyle = cx(
       contentStyle.contentBoxArea,
@@ -31,9 +52,35 @@ export default class PostList extends React.Component {
       {
         [s.expanded]: isExpanded
       },
-    );
+    )
     return (
       <div className={rootStyle}>
+        <div className={s.typeArea}>
+          {this.renderType('blog', 'road')}
+          {this.renderType('feature', 'gift')}
+          {this.renderType('spotlight', 'podcast')}
+        </div>
+        <div className={s.publishArea}>
+          {this.renderPublishOptions()}
+        </div>
+        <div className={cx(s.inputArea, s.titleArea)}>
+          <div className={s.title}>{title}</div>
+        </div>
+        <div className={s.secondaryInputArea}>
+          <div className={cx(s.inputArea, s.categoryArea)}>
+            <div className={s.category}>{category}</div>
+          </div>
+
+          <div className={cx(s.inputArea, s.tagArea)}>
+            <div className={s.tag}>{tag}</div>
+          </div>
+        </div>
+        <div className={s.imageButtonArea}>
+          <div className={s.typeItem}>
+            <i className={`fa fa-image`} />
+            <div className={s.typeName}>image</div>
+          </div>
+        </div>
         <div className={cx(contentStyle.contentBox, contentStyle.visible, s.postContent)}>
           Everyday carry small batch flannel schlitz, synth whatever tousled hammock asymmetrical retro. Pour-over sriracha tofu readymade chia, vinyl taxidermy. Letterpress try-hard swag tacos, jean shorts wolf yuccie hot chicken cray offal edison bulb fingerstache. 3 wolf moon selvage echo park, street art live-edge hot chicken austin chia authentic craft beer messenger bag bespoke air plant tattooed put a bird on it. Fashion axe pitchfork bespoke brooklyn letterpress kogi jean shorts hot chicken vice put a bird on it. VHS pok pok single-origin coffee beard blog. Tbh lyft shabby chic ethical, fap tilde bitters freegan gentrify trust fund 90's bushwick chartreuse distillery.
 
@@ -49,6 +96,46 @@ export default class PostList extends React.Component {
         </div>
       </div>
     );
+  }
+
+  renderPublishOptions() {
+    const isPublished = false;
+    let numOptions = -1;
+    return this.state.publishOptionsOrder.map((key, i) => {
+      const option = publishOptions[key];
+      const isDisabled = (key !== 'save') || isPublished ? (key === 'republish') : (key === 'publish')
+      const classes = cx(s.publishOption, {
+        [s.publishOptionHidden]: i > 0,
+        [s.publishOptionDisabled]: isDisabled,
+      })
+      if (!isDisabled) numOptions++;
+      return (
+        <div className={classes} style={{
+          transform: `translateY(-${numOptions * 64}px)`,
+          zIndex: 4 - i,
+        }}>
+          <i className={`fa fa-${option.icon}`} />
+          <div className={s.publishOptionText}>{option.text}</div>
+        </div>
+      );
+    });
+  }
+
+  renderType(typeName, iconName) {
+    const classes = cx(s.typeItem, {
+      [s.typeItemSelected]: typeName === this.state.postType,
+    });
+    return (
+      <div className={classes}
+           onClick={this.changePostType.bind(this, typeName)}>
+        <i className={`fa fa-${iconName}`} />
+        <div className={s.typeName}>{typeName}</div>
+      </div>
+    )
+  }
+
+  changePostType(postType) {
+    this.setState({postType});
   }
 
   togglePostExpansion(id) {

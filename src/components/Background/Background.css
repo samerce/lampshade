@@ -22,6 +22,7 @@
 
 .bgImage {
   width: 100%;
+  border-bottom: 2px solid var(--yellow);
 }
 
 .topImageArea {
