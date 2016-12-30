@@ -3,6 +3,7 @@ import MediumEditor from 'react-medium-editor';
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './Editor.css';
+import cx from 'classnames';
 
 import LocalStorageMixin from 'react-localstorage';
 import mixin from 'react-mixin';
@@ -47,7 +48,7 @@ export default class Editor extends React.Component {
 
   render() {
     return (
-      <div className={s.editor}>
+      <div className={cx(s.editor, this.props.className)}>
         <MediumEditor text={this.state.text}
                       options={editorOptions}
                       onChange={this.onChange.bind(this)} />

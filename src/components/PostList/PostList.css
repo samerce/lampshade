@@ -7,10 +7,11 @@
   --typeIconSize: 40px;
   --borderColor: color(var(--yellow) lightness(-10%));
   --publishButtonHeight: 50px;
+  --inputAreaHeight: 33px;
 }
 
 .postListRoot {
-  margin-bottom:110px;
+  margin-bottom: 110px;
 }
 
 .postContentArea {
@@ -22,15 +23,22 @@
   border-radius: 30px;
   background: var(--lightYellow);
   transition: all 3s var(--expoOut);
+  display: flex;
+  flex-direction: column;
 
   &.expanded {
     height: initial;
   }
 
-  .postContent {
-    height: 100%;
-    overflow: hidden;
-  }
+   & > * {
+    flex: 0 0 auto;
+   }
+}
+
+.postContent {
+  overflow: hidden;
+  flex: 0 1 auto;
+  margin-top: 10px;
 }
 
 .expandButton {
@@ -48,8 +56,8 @@
   display: flex;
   justify-content: center;
   position: absolute;
-  top: -35px;
-  left: -5px;
+  top: -50px;
+  left: 30px;
   cursor: pointer;
 }
 
@@ -95,16 +103,16 @@
 
 .imageButtonArea {
   position: absolute;
-  top: -35px;
-  right: 150px;
+  top: -50px;
+  right: 165px;
   display: flex;
   cursor: pointer;
 }
 
 .publishArea {
   position: absolute;
-  top: -30px;
-  right: -25px;
+  top: -35px;
+  right: 0px;
   display: flex;
   flex-direction: column;
   height: 60px;
@@ -112,6 +120,7 @@
 
   &:hover {
     height: initial;
+    padding-bottom: 10px;
 
     .publishOptionHidden {
       transform: none !important;
@@ -127,24 +136,24 @@
 .publishOption {
   height: var(--publishButtonHeight);
   line-height: var(--publishButtonHeight);
-  width: 110px;
+  width: 100px;
   box-shadow: var(--lightShadow);
   border-radius: 30px;
-  background: var(--yellow);
+  background: var(--darkBlue);
   padding: 0 15px;
   margin: 5px 0;
   cursor: pointer;
   transition: all .5s var(--expoOut);
   position: relative;
-  font-weight: 600;
-  border: 2px solid var(--darkBlue);
+  color: var(--yellow);
 
   &:hover {
     transform: scale(1.1, 1.1) !important;
   }
 
   i {
-    width: 20px;
+    width: 25px;
+    text-align: center;
   }
 }
 
@@ -166,7 +175,8 @@
 .inputArea {
   margin-bottom: 15px;
   font-weight: 600;
-  border-bottom: 1px dashed var(--darkBlue);
+  line-height: var(--inputAreaHeight);
+  height: var(--inputAreaHeight);
 }
 
 .titleArea {
@@ -175,17 +185,18 @@
   font-size: 22px;
 }
 
+.title {
+  text-align: center;
+}
+
 .categoryArea {
-  padding-left: 5px;
   flex: 0 0 30%;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 .tagArea {
-  padding-right: 5px;
-  text-align: right;
   flex: 1 0 auto;
-  margin-left: 15px;
+  margin-left: 5px;
 }
 
 .secondaryInputArea {

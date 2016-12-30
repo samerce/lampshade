@@ -89,3 +89,23 @@
     transform: translate(0, -1px);
   }
 }
+
+input, [data-medium-editor-element] {
+  outline: none;
+  color: var(--darkBlue);
+  background: transparent;
+  border: 1px dotted var(--darkBlue);
+  border-radius: 5px;
+  height: 100%;
+  padding: 5px;
+  transition: all .4s var(--expoOut);
+
+  &::placeholder {
+    color: color(var(--darkBlue) alpha(80%));
+  }
+  &:focus {
+    box-shadow: var(--lightShadow);
+    background: color(var(--yellow) lightness(+10%));
+    border-style: solid;
+  }
+}

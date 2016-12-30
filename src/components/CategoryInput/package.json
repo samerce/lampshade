@@ -1,0 +1,6 @@
+{
+  "name": "CategoryInput",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./CategoryInput.js"
+}

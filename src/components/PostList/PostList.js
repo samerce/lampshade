@@ -1,10 +1,15 @@
 import React from 'react';
+import Editor from '../Editor';
+import TagInput from '../TagInput';
+import CategoryInput from '../CategoryInput';
 
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import cx from 'classnames';
 import s from './PostList.css';
 import buttonStyle from '../../css/button.css';
 import contentStyle from '../contentBox.css';
+
+import autobind from 'autobind-decorator';
 
 const publishOptions = {
   save: {
@@ -29,7 +34,6 @@ export default class PostList extends React.Component {
     postType: 'blog',
     title: 'don your sex clothes',
     category: 'politics',
-    tag: '#economy',
     publishOptionsOrder: ['save', 'publish', 'republish'],
   };
 
@@ -64,15 +68,15 @@ export default class PostList extends React.Component {
           {this.renderPublishOptions()}
         </div>
         <div className={cx(s.inputArea, s.titleArea)}>
-          <div className={s.title}>{title}</div>
+          <Editor className={s.title}>{title}</Editor>
         </div>
         <div className={s.secondaryInputArea}>
           <div className={cx(s.inputArea, s.categoryArea)}>
-            <div className={s.category}>{category}</div>
+            <CategoryInput />
           </div>
 
           <div className={cx(s.inputArea, s.tagArea)}>
-            <div className={s.tag}>{tag}</div>
+            <TagInput />
           </div>
         </div>
         <div className={s.imageButtonArea}>
@@ -111,7 +115,7 @@ export default class PostList extends React.Component {
       if (!isDisabled) numOptions++;
       return (
         <div className={classes} style={{
-          transform: `translateY(-${numOptions * 64}px)`,
+          transform: `translateY(-${numOptions * 60}px)`,
           zIndex: 4 - i,
         }}>
           <i className={`fa fa-${option.icon}`} />
