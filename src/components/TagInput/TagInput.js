@@ -8,7 +8,7 @@ import autosuggestTheme from '../autosuggestTheme.css';
 
 import autobind from 'autobind-decorator';
 
-const tags = [
+const TAGS = [
   'ego',
   'collective consciousness',
   'addiction',
@@ -22,7 +22,7 @@ const getSuggestions = value => {
   const inputValue = value.trim().toLowerCase();
   const inputLength = inputValue.length;
 
-  return inputLength === 0 ? [] : tags.filter(tag =>
+  return inputLength === 0 ? [] : TAGS.filter(tag =>
     tag.slice(0, inputLength) === inputValue
   );
 };
@@ -51,20 +51,39 @@ export default class TagInput extends React.Component {
     const {value, suggestions} = this.state;
     const inputProps = {
       value,
-      placeholder: 'add tags',
+      placeholder: 'add tag',
       onChange: this.onChange,
+      onKeyDown: this.onKeyDown,
     }
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={getSuggestionValue}
-        renderSuggestion={renderSuggestion}
-        inputProps={inputProps}
-        focusFirstSuggestion={true}
-        theme={autosuggestTheme} />
+      <div className={s.tagInputArea}>
+        <div className={s.tagList}>
+          {this.state.tags.map(tag => (
+            <div className={s.tagArea} onClick={this.removeTag.bind(this, tag)}>
+              <i className='fa fa-close' />
+              <div className={s.tag}>
+                {tag}
+              </div>
+            </div>
+          ))}
+        </div>
+        <Autosuggest
+          suggestions={suggestions}
+          onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
+          onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          getSuggestionValue={getSuggestionValue}
+          renderSuggestion={renderSuggestion}
+          inputProps={inputProps}
+          focusFirstSuggestion={true}
+          theme={autosuggestTheme}
+          onSuggestionSelected={this.onTagSelected} />
+      </div>
     );
+  }
+
+  @autobind
+  onTagSelected(e, data) {
+    this.addTag(data.suggestionValue);
   }
 
   @autobind
@@ -72,6 +91,26 @@ export default class TagInput extends React.Component {
     this.setState({
       value: newValue
     });
+  }
+
+  @autobind
+  onKeyDown(e) {
+    if (e.keyCode == 13) {
+      this.addTag(this.state.value);
+    }
+  }
+
+  addTag(tag) {
+    const tags = [...this.state.tags];
+    if (tags.includes(tag)) return this.setState({value: ''});
+
+    tags.push(tag);
+    this.setState({tags, value: ''});
+  }
+
+  removeTag(tag) {
+    const tags = this.state.tags.filter(t => t !== tag);
+    this.setState({tags});
   }
 
   // Autosuggest calls this every time you need to update suggestions

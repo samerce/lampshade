@@ -111,10 +111,11 @@
       overflow: scroll;
     }
     .content {
+      opacity: 1;
       visibility: visible;
       height: initial;
       color: var(--darkBlue);
-      transition-property: color transform height;
+      transition-property: color transform height opacity;
       transition-duration: 1.5s;
       transition-delay: 1s;
       transform: none;
@@ -153,6 +154,7 @@
 .content {
   visibility: hidden;
   height: 0;
+  opacity: 0;
 }
 
 .titleArea {
