@@ -6,6 +6,8 @@ import cx from 'classnames';
 import s from './Background.css';
 import buttonStyle from '../../css/button.css';
 
+const imageUrl = 'http://d1iv9j7x4n3nsi.cloudfront.net/images';
+
 @withStyles(s, buttonStyle)
 export default class Background extends React.Component {
 
@@ -17,10 +19,10 @@ export default class Background extends React.Component {
     return (
       <div className={s.root}>
         <div className={s.topImageArea}>
-          <img className={cx(s.bgImage, s.topImage)} src='trippy.jpg' />
+          <img className={cx(s.bgImage, s.topImage)} src={`${imageUrl}/sidewalk.jpg`} />
         </div>
-        {this.renderBackground('scooter.jpg')}
-        {this.renderBackground('train.jpg')}
+        {this.renderBackground('face.jpg')}
+        {this.renderBackground('alice.jpg')}
       </div>
     );
   }
@@ -30,7 +32,7 @@ export default class Background extends React.Component {
     const iconName = isExpanded? 'eye-slash' : 'eye';
     return (
       <div className={cx(s.bgArea, {[s.expanded]: isExpanded})}>
-        <img className={s.bgImage} src={imageName} />
+        <img className={s.bgImage} src={`${imageUrl}/${imageName}`} />
         <div className={cx(buttonStyle.button, s.expandButton)}
              onClick={this.toggleExpandedImage.bind(this, imageName)}>
           <i className={`fa fa-${iconName}`} />

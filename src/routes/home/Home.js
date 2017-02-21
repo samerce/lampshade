@@ -11,7 +11,6 @@ export default class Home extends React.Component {
   render() {
     return (
       <div className={s.homeContainer}>
-        <BubbleExplorer window={this.props.window} />
         <PostList />
       </div>
     );

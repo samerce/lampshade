@@ -12,9 +12,9 @@
   --gray:                  color(black lightness(+33.5%)); /* #555 */
   --gray-light:            color(black lightness(+46.7%)); /* #777 */
   --gray-lighter:          color(black lightness(+93.5%)); /* #eee */
-  --yellow:                rgb(248, 198, 12);
+  --yellow:                #00162C;/*#1d1321;/*rgb(248, 198, 12);*/
   --blue:                  #64FFDA;
-  --darkBlue:              #004D40;
+  --darkBlue:              #64FFDA;/*#004D40;*/
   --brandColor:            var(--yellow);
   --linkColor:             var(--blue);
   --textColor:             var(--darkBlue);
@@ -47,6 +47,7 @@
 
   --max-content-width:     1000px;
   --headerPillWidth:       230px;
+  --mobileNavMaxWidth:     530px;
 
   /*
    * Media queries breakpoints

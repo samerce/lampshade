@@ -156,21 +156,25 @@ const config = {
         // Allow you to fix url() according to postcss to and/or from options
         // https://github.com/postcss/postcss-url
         require('postcss-url')(),
+        // allow variables to be used inside media query arguments (2nd inclusion below is required)
+        require('postcss-media-variables')(),
         // W3C variables, e.g. :root { --color: red; } div { background: var(--color); }
         // https://github.com/postcss/postcss-custom-properties
         require('postcss-custom-properties')(),
         // W3C CSS Custom Media Queries, e.g. @custom-media --small-viewport (max-width: 30em);
         // https://github.com/postcss/postcss-custom-media
         require('postcss-custom-media')(),
-        // CSS4 Media Queries, e.g. @media screen and (width >= 500px) and (width <= 1200px) { }
-        // https://github.com/postcss/postcss-media-minmax
-        require('postcss-media-minmax')(),
         // W3C CSS Custom Selectors, e.g. @custom-selector :--heading h1, h2, h3, h4, h5, h6;
         // https://github.com/postcss/postcss-custom-selectors
         require('postcss-custom-selectors')(),
         // W3C calc() function, e.g. div { height: calc(100px - 2em); }
         // https://github.com/postcss/postcss-calc
         require('postcss-calc')(),
+        // allow variables to be used inside media queries (this 2nd inclusion is required)
+        require('postcss-media-variables')(),
+        // CSS4 Media Queries, e.g. @media screen and (width >= 500px) and (width <= 1200px) { }
+        // https://github.com/postcss/postcss-media-minmax
+        require('postcss-media-minmax')(),
         // Allows you to nest one style rule inside another
         // https://github.com/jonathantneal/postcss-nesting
         require('postcss-nesting')(),

@@ -13,6 +13,15 @@
   text-align: center;
 }
 
+@media(max-width: var(--mobileNavMaxWidth)) {
+  .navSocialNetworks {
+    top: 100px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+  }
+}
+
 .navLink {
   display: inline-block;
   text-decoration: none;

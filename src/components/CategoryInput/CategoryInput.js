@@ -8,6 +8,7 @@ import autosuggestTheme from '../autosuggestTheme.css';
 
 import autobind from 'autobind-decorator';
 
+let INPUT_REF;
 const categories = [
   'philosophy',
   'politics',
@@ -53,6 +54,7 @@ export default class CategoryInput extends React.Component {
       value,
       placeholder: 'pick category',
       onChange: this.onChange,
+      onKeyDown: this.onKeyDown,
     }
     return (
       <Autosuggest
@@ -60,9 +62,11 @@ export default class CategoryInput extends React.Component {
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
+        focusInputOnSuggestionClick={false}
         renderSuggestion={renderSuggestion}
         inputProps={inputProps}
         focusFirstSuggestion={true}
+        inputRef={ref => INPUT_REF = ref}
         theme={autosuggestTheme} />
     );
   }
@@ -87,6 +91,13 @@ export default class CategoryInput extends React.Component {
     this.setState({
       suggestions: []
     });
+  }
+
+  @autobind
+  onKeyDown(e) {
+    if (e.keyCode === 13) {
+      INPUT_REF.blur();
+    }
   }
 
 }

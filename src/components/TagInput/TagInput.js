@@ -45,6 +45,7 @@ export default class TagInput extends React.Component {
     tags: ['economy'],
     value: '',
     suggestions: [],
+    isSuggestionFocused: false,
   };
 
   render() {
@@ -71,6 +72,7 @@ export default class TagInput extends React.Component {
           suggestions={suggestions}
           onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
           onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+          updateFocusedSuggestion={this.updateFocusedSuggestion}
           getSuggestionValue={getSuggestionValue}
           renderSuggestion={renderSuggestion}
           inputProps={inputProps}
@@ -79,6 +81,11 @@ export default class TagInput extends React.Component {
           onSuggestionSelected={this.onTagSelected} />
       </div>
     );
+  }
+
+  @autobind
+  updateFocusedSuggestion(sectionIndex, itemIndex) {
+    this.setState({isSuggestionFocused: itemIndex < 0});
   }
 
   @autobind
@@ -95,8 +102,9 @@ export default class TagInput extends React.Component {
 
   @autobind
   onKeyDown(e) {
-    if (e.keyCode == 13) {
-      this.addTag(this.state.value);
+    const {value} = this.state;
+    if (e.keyCode == 13 && !this.state.isSuggestionFocused) {
+      this.addTag(value);
     }
   }
 
@@ -116,8 +124,10 @@ export default class TagInput extends React.Component {
   // Autosuggest calls this every time you need to update suggestions
   @autobind
   onSuggestionsFetchRequested({value}) {
+    const suggestions = getSuggestions(value);
     this.setState({
-      suggestions: getSuggestions(value)
+      suggestions,
+      isSuggestionFocused: this.state.suggestions.length === 0 && suggestions.length > 0,
     });
   }
 
