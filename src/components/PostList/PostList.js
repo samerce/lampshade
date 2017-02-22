@@ -27,9 +27,9 @@ const publishOptions = {
 }
 
 const content = [
-  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/RTmW_nTDuXk" frameborder="0" allowfullscreen></iframe>),
-  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/S5LiwweHd1w" frameborder="0" allowfullscreen></iframe>),
-  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/zzYtehSP49Q" frameborder="0" allowfullscreen></iframe>),
+  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/RTmW_nTDuXk" frameBorder="0" allowFullScreen></iframe>),
+  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/S5LiwweHd1w" frameBorder="0" allowFullScreen></iframe>),
+  (<iframe width="1280" height="720" src="https://www.youtube.com/embed/zzYtehSP49Q" frameBorder="0" allowFullScreen></iframe>),
 ]
 
 @withStyles(s, contentStyle, buttonStyle)
