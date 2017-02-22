@@ -28,9 +28,17 @@
    --mainShadow: 0 0 14px rgba(0,0,0,.84),
                  0 12px 12px rgba(0,0,0,.28),
                  1px 1px 3px var(--blue),
-                 -1px -1px 3px var(--blue);
+                 -1px -1px 3px var(--blue),
+                 1px -1px 3px var(--blue),
+                 -1px 1px 3px var(--blue);
    --lightShadow: 0 0 14px rgba(0,0,0,.84),
                   0 12px 12px rgba(0,0,0,.28);
+   --shadowBig: 0 0 24px rgba(0,0,0,.84),
+                0 22px 22px rgba(0,0,0,.28),
+                1px 1px 1px var(--blue),
+                -1px -1px 1px var(--blue),
+                1px -1px 1px var(--blue),
+                 -1px 1px 1px var(--blue);
 
   /*
    * Typography
@@ -95,10 +103,7 @@
 
   &:hover {
     background: color(var(--yellow) alpha(90%));
-    box-shadow: 0 0 24px rgba(0,0,0,.84),
-                0 22px 22px rgba(0,0,0,.28),
-                1px 1px 1px var(--blue),
-                -1px -1px 1px var(--blue);
+    box-shadow: var(--shadowBig);
     transform: translate(0, -1px);
   }
 }

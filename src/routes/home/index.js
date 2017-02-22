@@ -17,7 +17,7 @@ export default {
 
   action({path, window}) {
     return {
-      title: 'Lampshade Loves You',
+      title: 'pure rational emotion',
       component: <Layout location={path}><Home window={window} /></Layout>,
     };
   },

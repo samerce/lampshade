@@ -32,7 +32,7 @@ export default {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = `${route.title || 'Lampshade Loves You'} - Lampshade Life`;
+    route.title = `${route.title || 'pure rational emotion'} - lampshade life`;
     route.description = route.description || '';
 
     return route;

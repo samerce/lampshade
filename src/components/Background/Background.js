@@ -38,6 +38,7 @@ export default class Background extends React.Component {
         <div className={cx(buttonStyle.button, s.expandButton)}
              onClick={this.toggleExpandedImage.bind(this, imageName)}>
           <i className={cx(`fa fa-${iconName}`, s.expandIcon)} />
+          <div className={s.clikHint}>clik!</div>
         </div>
       </div>
     );

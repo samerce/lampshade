@@ -3,6 +3,7 @@
 :root {
   --expandIconSize: 50px;
   --expandIconSizeSmall: 40px;
+  --clikHintScaleSmall: .8;
 }
 
 .root {
@@ -54,4 +55,40 @@
     line-height: var(--expandIconSizeSmall);
     font-size: 15px;
   }
+
+  .clikHint {
+    font-size: 18px;
+  }
 }
+
+@keyframes pulse {
+  0% {
+    transform: rotateZ(-20deg) translateX(-50%) scale(var(--clikHintScaleSmall), var(--clikHintScaleSmall));
+  }
+
+  50% {
+    transform: rotateZ(-10deg) translateX(-50%) scale(1, 1);
+  }
+
+  100% {
+    transform: rotateZ(-20deg) translateX(-50%) scale(var(--clikHintScaleSmall), var(--clikHintScaleSmall));
+  }
+}
+
+.clikHint {
+  font-family: 'Gloria Hallelujah';
+  font-size: 24px;
+  color: var(--white);
+  text-shadow: 3px 3px color(#6b62dd alpha(100%));
+
+  position: absolute;
+  left: 50%;
+  top: 90%;
+  transform: translateY(-50%);
+  animation-name: pulse;
+  animation-duration: 2s;
+  animation-timing-function: var(--sinOut);
+  animation-iteration-count: infinite;
+  pointer-events: none;
+}
+
