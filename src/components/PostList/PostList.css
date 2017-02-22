@@ -41,7 +41,12 @@
 
 @media(max-width: var(--mobileNavMaxWidth)) {
   .postListRoot {
-    margin-top: 240px;
+    margin-top: 210px;
+  }
+
+  .postContentArea {
+    padding: 15px;
+    border-radius: 15px;
   }
 }
 

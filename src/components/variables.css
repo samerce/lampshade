@@ -37,7 +37,7 @@
    * ======================================================================== */
 
   --font-family-base:      'Segoe UI', 'HelveticaNeue-Light', sans-serif;
-  --textShadowDarkBlue: 1px 1px color(var(--darkBlue) alpha(60%));
+  --textShadowDarkBlue: 1px 1px color(var(--darkBlue) alpha(30%));
   --textShadowWhite: 1px 1px color(var(--white) alpha(30%));
   --textShadowWhiteLight: 1px 1px color(var(--white) alpha(20%));
 
@@ -47,7 +47,11 @@
 
   --max-content-width:     1000px;
   --headerPillWidth:       230px;
+  --headerPillWidthSmall:  190px;
   --mobileNavMaxWidth:     530px;
+  --mobileNavMaxWidthHorizontal: 768px;
+  --navHeight: 80px;
+  --navHeightSmall: 60px;
 
   /*
    * Media queries breakpoints
@@ -71,8 +75,16 @@
 
 .navArea {
   border-radius: 70px;
-  height: 80px;
-  line-height: 80px;
+  height: var(--navHeight);
+  line-height: var(--navHeight);
+}
+
+@media(max-width: var(--mobileNavMaxWidthHorizontal)) {
+  .navArea {
+    width: var(--headerPillWidthSmall);
+    height: var(--navHeightSmall);
+    line-height: var(--navHeightSmall);
+  }
 }
 
 .navButton {

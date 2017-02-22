@@ -30,6 +30,12 @@
   }
 }
 
+@media(max-width: var(--mobileNavMaxWidthHorizontal)) {
+  .navLogoTxt {
+    font-size: 38px;
+  }
+}
+
 .navLogo {
   color: color(var(--brandColor) lightness(+10%));
   text-decoration: none;

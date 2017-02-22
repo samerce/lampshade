@@ -3,6 +3,7 @@
 :root {
   --linkColor: #FCF8E6;
   --linkFontSize: 26px;
+  --linkFontSizeSmall: 20px;
 }
 
 .navSocialNetworks {
@@ -15,10 +16,17 @@
 
 @media(max-width: var(--mobileNavMaxWidth)) {
   .navSocialNetworks {
-    top: 100px;
+    top: 80px;
     margin: 0 auto;
     left: 0;
     right: 0;
+  }
+}
+
+@media(max-width: var(--mobileNavMaxWidthHorizontal)) {
+  .navLink {
+    font-size: var(--linkFontSizeSmall);
+    width: 40px;
   }
 }
 

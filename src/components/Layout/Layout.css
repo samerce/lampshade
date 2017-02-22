@@ -310,3 +310,9 @@ h2.quick-blurb {
 .layoutRoot {
   overflow: hidden;
 }
+
+@media(max-width: var(--mobileNavMaxWidth)) {
+  .headerContainer {
+    position: relative;
+  }
+}
