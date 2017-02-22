@@ -37,6 +37,7 @@ class Html extends React.Component {
           {style && <style type='text/css' id="css" dangerouslySetInnerHTML={{ __html: style }} />}
           <link href='https://fonts.googleapis.com/css?family=Rancho' rel='stylesheet' type='text/css' />
           <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Special+Elite|Reenie+Beanie" rel="stylesheet" />
           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
           <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" />
         </head>

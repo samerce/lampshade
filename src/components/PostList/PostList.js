@@ -31,6 +31,14 @@ const content = [
   (<iframe width="1280" height="720" src="https://www.youtube.com/embed/S5LiwweHd1w" frameBorder="0" allowFullScreen></iframe>),
   (<iframe width="1280" height="720" src="https://www.youtube.com/embed/zzYtehSP49Q" frameBorder="0" allowFullScreen></iframe>),
 ]
+const contentBlurbs = [
+  (<div>“trump is a sexy, sexy man. self-assurance is wildly attractive. a man who ignores reality and creates his own is sexy.” <br /><br />
+. . . the moment you start to seriously question your sanity, your basic understanding of time, space and matter — all you’ve been taught throughout life to be true, is the moment you also start to seriously question everyone else’s.<br /><br />
+ & it is in this moment that you know you’re onto it: salvation; freedom outside of man’s hopeless grasping at life. outside the dogma of fitting in; outside the need to be something, to do something, to prove something. once you move beyond the fake duality of good and evil, right and wrong, doing and being - you arrive naked in the rocks, utterly free, without any preexisting condition(ing).<br /><br />
+here lies a world beyond labels and title. a world where each man is his own user’s guide to life. his own morals and codes and purpose for existence - means and ends unto himself.<br /><br />
+from here, it is a long improvisational dance back towards finding equilibrium between your lucid rationality & the irresistibly irrational waking world.<br /><br />
+a brave dance that can’t be bought or taught - simply felt, uncovered by curiosity’s experience.</div>),
+]
 
 @withStyles(s, contentStyle, buttonStyle)
 export default class PostList extends React.Component {
@@ -95,6 +103,11 @@ export default class PostList extends React.Component {
           <div className={s.videoArea}>
             {content[id]}
           </div>
+          {contentBlurbs[id] &&
+            <div className={s.contentBlurb}>
+              {contentBlurbs[id]}
+            </div>
+          }
         </div>
         <div className={cx(buttonStyle.button, s.expandButton)}
              onClick={this.togglePostExpansion.bind(this, id)}>
