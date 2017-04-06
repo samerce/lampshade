@@ -89,6 +89,6 @@
   animation-duration: 2s;
   animation-timing-function: var(--sinOut);
   animation-iteration-count: infinite;
-  pointer-events: none;
+  user-select: none;
 }
 
