@@ -28,6 +28,9 @@ const publishOptions = {
 
 const content = [
   {
+    feature: (<iframe width="1280" height="720" src="https://www.youtube.com/embed/s2gGuBA_acg" frameBorder="0" allowFullScreen></iframe>),
+  },
+  {
     feature: (<iframe width="1280" height="720" src="https://www.youtube.com/embed/C59QSCVpSuY" frameBorder="0" allowFullScreen></iframe>),
   },
   {
@@ -77,7 +80,7 @@ export default class PostList extends React.Component {
       },
     )
     return (
-      <div className={rootStyle}>
+      <div className={rootStyle} key={id}>
         <div className={s.typeArea}>
           {this.renderType('blog', 'road')}
           {this.renderType('feature', 'gift')}
@@ -134,7 +137,7 @@ export default class PostList extends React.Component {
       })
       if (!isDisabled) numOptions++;
       return (
-        <div className={classes} style={{
+        <div className={classes} key={key} style={{
           transform: `translateY(-${numOptions * 60}px)`,
           zIndex: 4 - i,
         }}>

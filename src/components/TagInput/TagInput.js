@@ -60,7 +60,7 @@ export default class TagInput extends React.Component {
       <div className={s.tagInputArea}>
         <div className={s.tagList}>
           {this.state.tags.map(tag => (
-            <div className={s.tagArea} onClick={this.removeTag.bind(this, tag)}>
+            <div className={s.tagArea} key={tag} onClick={this.removeTag.bind(this, tag)}>
               <i className='fa fa-close' />
               <div className={s.tag}>
                 {tag}
